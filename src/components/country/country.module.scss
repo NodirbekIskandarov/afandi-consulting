@@ -1,0 +1,50 @@
+.country {
+    width: 100%;
+    margin-top: 70px;
+    .title {
+        width: 100%;
+        text-align: center;
+        span {
+            font-weight: 400;
+            font-size: 48px;
+            line-height: 62.4px;
+            letter-spacing: -2%;
+        }
+        p {
+            width: 494px;
+            margin: 20px auto;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 28px;
+            color: #636059;
+        }
+    }
+
+    .cards {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+        .card {
+            width: 47%;
+            margin-bottom: 30px;
+            img {
+                width: 100%;
+            }
+            .name {
+                font-weight: 400;
+                font-size: 32px;
+                line-height: 41.6px;
+            }
+            .desc {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 19.84px;
+                color: #636059;
+                margin-top: 10px;
+            }
+        }
+    }
+}
