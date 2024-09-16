@@ -19,6 +19,7 @@ function Contact() {
                 <textarea name="" id="" placeholder='Your message'>
 
                 </textarea>
+                <button>Send message</button>
             </div>  
         </div>
     )
