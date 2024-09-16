@@ -9,7 +9,9 @@ function Header() {
     <div className={styles.main}>
         <div className={styles.header}>
             <div className={styles.logo_part}>
-                <img src={logo} alt='logotip'/>
+                <a href="/">
+                    <img src={logo} alt='logotip'/>
+                </a>
             </div>
 
             <div className={styles.menu_part}>
