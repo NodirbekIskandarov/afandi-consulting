@@ -6,5 +6,55 @@
     .container {
         width: 90%;
         margin: 0 auto;
+        .logo_part {
+            width: 417px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            img {
+                width: 148px;
+            }
+            span {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: #E6E6E5;
+            }
+        }
+        .menu {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            span {
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 28px;
+                color: #FFFFFF;
+            }
+            div {
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                .link {
+                    color: #E6E6E5;
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 28px;
+                    text-decoration: none;
+                }
+            }
+        }
+        .line {
+            width: 100%;
+            border-bottom: 1px solid #114C93;
+            margin: 40px 0;
+        }
+        .past {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 20px;
+        }
     }
 }   
