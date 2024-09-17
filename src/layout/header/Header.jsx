@@ -24,7 +24,7 @@ function Header() {
                 </div>
 
                 <div className={styles.call}>
-                    <a href=""><img src={vector} alt="avatar" /> <span>Call now</span></a>   
+                    <a href="/"><img src={vector} alt="avatar" /> <span>Call now</span></a>   
                 </div>
             </div>
         </div>   
