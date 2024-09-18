@@ -29,7 +29,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-  
+      @media (max-width: 768px) {
+        justify-content: flex-end;
+      }
       .menu {
         display: flex;
         gap: 30px;
@@ -61,6 +63,10 @@
                 color: #FFFFFF;
             }
         }
+
+        @media (max-width: 768px) {
+            display: none; 
+          }
     }
   
       .menuToggle {
@@ -70,6 +76,7 @@
           display: block; // Show toggle on mobile
           font-size: 24px;
           cursor: pointer;
+          color: #FFFFFF;
         }
       }
     }
