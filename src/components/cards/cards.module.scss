@@ -1,12 +1,8 @@
 .cards {
-    width: 90%; // Use percentage for responsiveness
-    max-width: 1200px; // Set a maximum width for larger screens
-    margin: 0 auto;
-
+    width: 100%;
     .title_part {
-        width: 100%; // Full width for the title part
-        text-align: center; // Center text for better alignment
-
+        width: 50%;
+        margin: 0 auto;
         h2 {
             font-weight: 400;
             font-size: 48px;
@@ -14,7 +10,6 @@
             letter-spacing: -2%;
             color: #0A0A0A;
         }
-
         span {
             margin: 0 auto;
             font-weight: 400;
@@ -24,60 +19,18 @@
             color: #636059;
         }
     }
-
     .cards_part {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        gap: 25px; // Space between cards
+        gap: 15px;
         align-items: center;
         margin-top: 40px;
         margin-bottom: 40px;
-
         .card {
-            width: 100%; // Full width on small screens
-            max-width: 386px; // Max width for larger screens
+            width: 386px;
             height: 170px;
             border-radius: 8px;
-            overflow: hidden; // Prevent overflow for background image
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-
-            // Background image will be set inline in the component
-        }
-    }
-
-    // Responsive styles
-    @media (max-width: 768px) {
-        .title_part {
-            span {
-                font-size: 16px; // Smaller font size for mobile
-            }
-
-            h2 {
-                font-size: 36px; // Smaller title font size for mobile
-                line-height: 48px; // Adjust line height for mobile
-            }
-        }
-
-        .cards_part {
-            .card {
-                width: 100%; // Full width for cards on smaller screens
-                height: auto; // Allow height to adjust based on content
-            }
-        }
-    }
-
-    @media (max-width: 480px) {
-        .title_part {
-            h2 {
-                font-size: 28px; // Further reduce title font size
-            }
-
-            span {
-                font-size: 14px; // Further reduce span font size
-            }
         }
     }
 }
