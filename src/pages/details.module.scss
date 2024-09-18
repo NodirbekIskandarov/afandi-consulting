@@ -7,10 +7,9 @@
     .links {
         margin: 40px auto;
         display: flex;
-        flex-wrap: wrap; // Allow wrapping for smaller screens
         justify-content: center; // Center links
-        width: auto; // Allow flexible width
-        height: 44px;
+        width: 198px; // Allow flexible width
+        height: 37px;
         padding: 4px;
         border-radius: 100px;
         background-color: #F3F4F6;
@@ -19,7 +18,7 @@
             height: 36px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 16px; // Default font size
             line-height: 19.84px;
             letter-spacing: -2%;
             display: flex;
@@ -39,21 +38,22 @@
     // Responsive styles
     @media (max-width: 768px) {
         .links {
-            flex-direction: column; // Stack links vertically on smaller screens
-            width: 100%; // Full width for links container
+            width: 198px; // Full width for links container
             padding: 10px; // Adjust padding for better spacing
         }
 
         .link {
             width: 100%; // Full width for links on smaller screens
             margin: 5px 0; // Margin between stacked links
+            font-size: 14px; // Reduce font size for smaller screens
+            line-height: 18px; // Adjust line height for smaller screens
         }
     }
 
     @media (max-width: 480px) {
         .link {
-            font-size: 14px; // Reduce font size for smaller screens
-            line-height: 17.6px; // Adjust line height for smaller screens
+            font-size: 12px; // Further reduce font size for very small screens
+            line-height: 16px; // Further adjust line height
         }
     }
 }
