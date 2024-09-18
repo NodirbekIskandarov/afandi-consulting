@@ -7,10 +7,10 @@ function Home() {
       width: "1400px",
       margin: "0 auto"
     }}>
-      <Banner/>
+      {/* <Banner/>
       <About />
       <Country/>
-      <Contact/>
+      <Contact/> */}
     </div>
   )
 }
