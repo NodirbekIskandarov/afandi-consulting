@@ -1,0 +1,28 @@
+.details {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    .links {
+        margin: 40px auto;
+        display: flex;
+        width: 198px;
+        height: 44px;
+        padding: 4px;
+        border-radius: 100px;
+        background-color: #F3F4F6;
+        justify-content: center;
+        align-items: center;
+        .link {
+            height: 36px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19.84px;
+            letter-spacing: -2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100px;
+        }
+    }
+}
