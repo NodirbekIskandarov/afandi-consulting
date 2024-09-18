@@ -2,15 +2,18 @@
     width: 90%;
     padding-top: 70px;
     margin: 0 auto;
+
     .title {
         width: 100%;
         text-align: center;
+
         span {
             font-weight: 400;
             font-size: 48px;
             line-height: 62.4px;
             letter-spacing: -2%;
         }
+
         p {
             width: 494px;
             margin: 20px auto;
@@ -28,23 +31,57 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 40px;
+
         .card {
-            width: 47%;
+            width: 47%; // Two cards per row on larger screens
             margin-bottom: 30px;
+
             img {
                 width: 100%;
             }
+
             .name {
                 font-weight: 400;
                 font-size: 32px;
                 line-height: 41.6px;
             }
+
             .desc {
                 font-size: 16px;
                 font-weight: 400;
                 line-height: 19.84px;
                 color: #636059;
                 margin-top: 10px;
+            }
+        }
+    }
+
+    // Responsive styles
+    @media (max-width: 768px) {
+        .title {
+            p {
+                width: 80%; // Reduce width for mobile screens
+            }
+        }
+
+        .cards {
+            .card {
+                width: 100%; // Full width for cards on mobile
+                margin-bottom: 20px; // Adjust margin for mobile
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .title {
+            span {
+                font-size: 36px; // Adjust title font size for small screens
+                line-height: 48px; // Adjust line height for small screens
+            }
+
+            p {
+                font-size: 14px; // Adjust paragraph font size for small screens
+                line-height: 20px; // Adjust line height for small screens
             }
         }
     }

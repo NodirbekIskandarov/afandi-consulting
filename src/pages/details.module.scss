@@ -1,17 +1,20 @@
 .details {
-    width: 90%;
+    width: 90%; // Use percentage for responsiveness
+    max-width: 1200px; // Set a maximum width for larger screens
     margin: 0 auto;
     text-align: center;
+
     .links {
         margin: 40px auto;
         display: flex;
-        width: 198px;
+        flex-wrap: wrap; // Allow wrapping for smaller screens
+        justify-content: center; // Center links
+        width: auto; // Allow flexible width
         height: 44px;
         padding: 4px;
         border-radius: 100px;
         background-color: #F3F4F6;
-        justify-content: center;
-        align-items: center;
+
         .link {
             height: 36px;
             text-decoration: none;
@@ -23,6 +26,34 @@
             justify-content: center;
             align-items: center;
             border-radius: 100px;
+            margin: 0 5px; // Margin between links
+
+            // Hover effects
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.8); // Slight hover effect
+                color: #030712; // Change text color on hover
+            }
+        }
+    }
+
+    // Responsive styles
+    @media (max-width: 768px) {
+        .links {
+            flex-direction: column; // Stack links vertically on smaller screens
+            width: 100%; // Full width for links container
+            padding: 10px; // Adjust padding for better spacing
+        }
+
+        .link {
+            width: 100%; // Full width for links on smaller screens
+            margin: 5px 0; // Margin between stacked links
+        }
+    }
+
+    @media (max-width: 480px) {
+        .link {
+            font-size: 14px; // Reduce font size for smaller screens
+            line-height: 17.6px; // Adjust line height for smaller screens
         }
     }
 }
