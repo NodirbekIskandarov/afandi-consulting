@@ -1,7 +1,11 @@
 .main {
     width: 100%;
     background-color: #22376C;
-    padding: 16px 0; // Reduced padding for better fit
+    padding: 32px 0;
+  
+    @media (max-width: 768px) {
+      padding: 16px 0; // Reduced padding for mobile
+    }
   }
   
   .header {
@@ -10,85 +14,97 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-  }
   
-  .logo_part {
-    width: 50px;
-    height: 50px;
+    .logo_part {
+      width: 50px;
+      height: 50px;
   
-    img {
-      width: 100%;
-    }
-  }
-  
-  .menu_part {
-    display: flex;
-    align-items: center;
-    position: relative;
-  
-    .menuOverlay {
-      position: fixed;
-      top: 0;
-      right: 0;
-      background-color: rgba(34, 55, 108, 0.95);
-      width: 70%;
-      height: 100%;
-      padding: 20px;
-      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end; // Align items to the right
-      z-index: 1000; // Ensure it appears above other content
-    }
-  
-    .menu {
-      display: flex;
-      flex-direction: column; // Stack menu items vertically
-      width: 100%; // Full width
-  
-      .link {
-        text-decoration: none;
-        color: #E8E8E8;
-        padding: 15px 0; // Add padding for better click area
-        width: 100%; // Full width for links
-        text-align: right; // Align text to the right for consistency
+      img {
+        width: 100%;
       }
-      
-      .call {
-        margin-top: 15px; // Space between menu items
+    }
   
+    .menu_part {
+      width: 30%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .menu {
+        display: flex;
+        gap: 30px;
+  
+        .link {
+          text-decoration: none;
+          color: #E8E8E8;
+        }
+  
+        @media (max-width: 768px) {
+          display: none; // Hide on mobile
+        }
+      }
+  
+      .call {
         a {
-          width: 100%; // Full width for mobile
-          border-radius: 100px;
-          border: 1px solid #114C93;
           display: flex;
           align-items: center;
-          justify-content: center;
           text-decoration: none;
-          background: linear-gradient(to bottom, #22376C, #FFFFFF33);
-          box-shadow: 0px 5px 5px -3px #0000001A;
-          color: #FFFFFF;
-          padding: 10px 0;
+  
+          img {
+            margin-right: 8px;
+          }
+  
+          span {
+            color: #FFFFFF;
+          }
+        }
+      }
+  
+      .menuToggle {
+        display: none; // Hide toggle on desktop
+  
+        @media (max-width: 768px) {
+          display: block; // Show toggle on mobile
+          font-size: 24px;
+          cursor: pointer;
         }
       }
     }
+  }
   
-    .menuToggle {
-      display: none; // Hide toggle on desktop
-  
-      @media (max-width: 768px) {
-        display: block; // Show toggle on mobile
-        font-size: 24px;
-        cursor: pointer;
-      }
-    }
+  .menuOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(34, 55, 108, 0.95);
+    width: 70%;
+    height: 100%;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 1000;
   
     .closeButton {
       font-size: 24px;
       color: #E8E8E8;
       cursor: pointer;
-      align-self: flex-end; // Position the close button at the top right
-      margin-bottom: 20px; // Space below the close button
+      align-self: flex-end;
+      margin-bottom: 20px;
+    }
+  
+    .menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  
+      .link {
+        text-decoration: none;
+        color: #E8E8E8;
+        padding: 15px 0;
+        width: 100%;
+        text-align: right;
+      }
     }
   }
