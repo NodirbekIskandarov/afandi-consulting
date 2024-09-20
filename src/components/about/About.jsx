@@ -4,11 +4,22 @@ import rasm from '../../assets/images/aboutimg.png'
 import odam from '../../assets/images/odam.png'
 import { getRequest } from '../../utils/request'
 import { about } from '../../utils/API_urls'
+import axios from 'axios'
 function About() {
+    // useEffect(() => {
+    //     getRequest(about)
+    //     .then(response => {
+    //         console.log(response)
+    //     })
+    //     .catch(error => {
+    //         console.log(error)
+    //     })
+    // }, [])
+
     useEffect(() => {
-        getRequest(about)
+        axios.get("http://172.15.156.13:8000/api/v1/get/about/")
         .then(response => {
-            console.log(response)
+            console.log(response, "response")
         })
         .catch(error => {
             console.log(error)

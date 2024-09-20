@@ -1,32 +1,27 @@
-import axios from "axios";
+ // Import the axios instance
+
+import instance from "./base_Url";
 
 export const getRequest = (url) => {
     return new Promise((resolve, reject) => {
-        axios.get(url, {
-            // headers: headerConfig(), // baseUrl da interceptors orqali auth qilinmaganda ishlatiladi
-            // "Accept-Language": 
-        }).then(response => {
+        instance.get(url)  // Use instance instead of axios.get
+        .then(response => {
             resolve(response);
-        }).catch(error => {
-            reject(error);
         })
-    })
-}
-
+        .catch(error => {
+            reject(error);
+        });
+    });
+};
 
 export const postRequest = (url, data) => {
     return new Promise((resolve, reject) => {
-        axios.post(
-            url,
-            data,
-            {
-                // headers: headerConfig(), // baseUrl da interceptors orqali auth qilinmaganda ishlatiladi
-            }
-        ).then((response) => {
-            resolve(response)
+        instance.post(url, data)  // Use instance instead of axios.post
+        .then((response) => {
+            resolve(response);
         })
         .catch((error) => {
-            reject(error)
+            reject(error);
         });
-    })
-}
+    });
+};
