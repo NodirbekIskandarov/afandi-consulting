@@ -3,19 +3,19 @@
     margin: 0 auto;
     text-align: center;
     padding-top: 50px;
+
     .text_part {
         width: 55%;
-        text-align: center;
         margin: 0 auto;
+
         span {
-            width: 100%;
             font-weight: 400;
             font-size: 56px;
             line-height: 72.8px;
             color: #000000;
         }
+
         p {
-            width: 100%;
             font-size: 16px;
             line-height: 24px;
             font-weight: 400;
@@ -23,12 +23,49 @@
             margin-top: 10px;
         }
     }
+
     .banner_img {
-        width: 999px;
+        width: 100%; // Full width for responsiveness
         margin: 0 auto;
+        display: flex; // Use flex to center align the image
+
         img {
-            width: 100%;
-            margin-top: 50px;
+            width: 100%; // Image takes full width
+            height: auto; // Maintain aspect ratio
+            display: block; // Remove bottom space
+            object-fit: cover; // Ensure the image covers the space
+            margin-top: 50px; // Space above the image
+        }
+    }
+
+    // Responsive styles
+    @media (max-width: 768px) {
+        .text_part {
+            width: 80%; // Adjust for tablet
+            span {
+                font-size: 36px;
+                line-height: 44px;
+            }
+            p {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding-top: 30px;
+
+        .text_part {
+            width: 90%; // Adjust for mobile
+            span {
+                font-size: 24px;
+                line-height: 32px;
+            }
+            p {
+                font-size: 12px;
+                line-height: 18px;
+            }
         }
     }
 }

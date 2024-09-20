@@ -1,0 +1,20 @@
+.home {
+    width: 90%; // Use percentage for general responsiveness
+    max-width: 1400px; // Set a maximum width
+    margin: 0 auto;
+    padding: 0 20px; // Add some padding for smaller screens
+
+    // Responsive styles
+    @media (max-width: 1200px) {
+        width: 95%; // Wider for medium screens
+    }
+
+    @media (max-width: 768px) {
+        width: 100%; // Full width for smaller devices
+        padding: 0 10px; // Less padding for mobile
+    }
+
+    @media (max-width: 480px) {
+        padding: 0 5px; // Further reduce padding for very small screens
+    }
+}
