@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './about.module.scss'
 import rasm from '../../assets/images/aboutimg.png'
 import odam from '../../assets/images/odam.png'
+import { getRequest } from '../../utils/request'
+import { about } from '../../utils/API_urls'
 function About() {
+    useEffect(() => {
+        getRequest(about)
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }, [])
   return (
     <div className={styles.about}>
         <div className={styles.info}>
