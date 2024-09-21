@@ -1,5 +1,6 @@
 export {default as Banner} from './banner/Banner'
 export {default as About} from './about/About'
+export {default as Team} from './team/Team'
 export {default as Country} from './country/Country'
 export {default as Contact} from './contact/Contact'
 export {default as Cards} from './cards/Cards'
