@@ -2,10 +2,16 @@ import React from "react";
 import styles from "./cards.module.scss";
 import { IoIosStarOutline } from "react-icons/io";
 import { host } from "../../utils/API_urls";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 function Cards({ data }) {
   const pk = useLocation();
   const name = localStorage.getItem('name');
+  const navigate = useNavigate()
+  function navigateFunc (id) {
+    const path = pk.pathname.includes("jobs") ? `/details/jobs/${id}` : `/details/universities/${id}`;
+    console.log(path, "path")
+    navigate(path);
+  }
   return (
     <div className={styles.cards}>
       <div className={styles.title_part}>
@@ -27,7 +33,9 @@ function Cards({ data }) {
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
+                cursor: "pointer"
               }}
+              onClick={() => navigateFunc(item?.uuid)}
             >
               <div
                 style={{
