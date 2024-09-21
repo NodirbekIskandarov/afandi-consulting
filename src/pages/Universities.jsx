@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Cards } from '../components'
-import MyContext from '../context/MyContext';
 import { details } from '../utils/API_urls';
 import { getRequest } from '../utils/request';
 
 function Universities() {
-  const { countryId } = useContext(MyContext);
   const [data, setData] = useState()
 
   useEffect(() => {
+    const countryId = localStorage.getItem('uuid');
     getRequest(`${details}${countryId}/university/`)
     .then(response => {
       setData(response?.data)
@@ -16,7 +15,7 @@ function Universities() {
     .catch(error => {
       console.log(error)
     })
-  }, [countryId])
+  }, [])
   return (
     <div>
         <Cards data={data}/>

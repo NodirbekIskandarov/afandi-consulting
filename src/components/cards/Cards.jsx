@@ -1,17 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./cards.module.scss";
 import { IoIosStarOutline } from "react-icons/io";
-import MyContext from "../../context/MyContext";
 import { host } from "../../utils/API_urls";
 import { useLocation } from "react-router-dom";
 function Cards({ data }) {
-  console.log(data, "data");
   const pk = useLocation();
-  const { text } = useContext(MyContext);
+  const name = localStorage.getItem('name');
   return (
     <div className={styles.cards}>
       <div className={styles.title_part}>
-        <h2>{text} {pk.pathname === "/details/jobs" ? "Jobs" : "Universities"}</h2>
+        <h2>{name} {pk.pathname === "/details/jobs" ? "Jobs" : "Universities"}</h2>
         <span>
           Transform Your Life and Impact the World with Our Globally Accredited
           Courses

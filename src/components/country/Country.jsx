@@ -20,6 +20,8 @@ function Country() {
   function navigateFunc(item) {
     setText(item.name)
     setCountryId(item.uuid)
+    localStorage.setItem('uuid', item.uuid);
+    localStorage.setItem('name', item.name);
     navigate('/details/jobs')
   }
   return (
