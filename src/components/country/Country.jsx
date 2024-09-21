@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./country.module.scss";
 import { getRequest } from "../../utils/request";
 import { country } from "../../utils/API_urls";
+import MyContext from "../../context/MyContext";
+import { useNavigate } from "react-router-dom";
 function Country() {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -13,6 +15,13 @@ function Country() {
         console.log(error);
       });
   }, []);
+  const { setText, setCountryId } = useContext(MyContext);
+  const navigate = useNavigate()
+  function navigateFunc(item) {
+    setText(item.name)
+    setCountryId(item.uuid)
+    navigate('/details/jobs')
+  }
   return (
     <div className={styles.country}>
       <div className={styles.title}>
@@ -26,7 +35,7 @@ function Country() {
       <div className={styles.cards}>
         {data?.map((item, index) => {
           return (
-            <div className={styles.card} key={index}>
+            <div className={styles.card} key={index} onClick={() => navigateFunc(item)}>
               <img src={item?.image} alt="country rasm" />
               <span className={styles.name}>{item.name}</span>
               <br />
