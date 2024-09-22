@@ -27,7 +27,7 @@ function Header() {
 
         <div className={styles.menu_part}>
           <div className={`${styles.menu} ${isMenuOpen ? styles.active : ''}`}>
-            {['Home', 'About', 'Country', 'Team', 'Contact'].map((item) => (
+            {['Home', 'About', 'Country', 'Contact'].map((item) => (
               <Link key={item} to="/" className={styles.link} onClick={closeMenu}>
                 {item}
               </Link>
