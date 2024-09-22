@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import styles from './header.module.scss';
 import logo from '../../assets/images/logo.png';
 import vector from '../../assets/images/vector.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(prevState => !prevState);
@@ -14,6 +15,11 @@ function Header() {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleMenuClick = (section) => {
+    navigate(`/#${section}`);  // URL ga fragment (#about, #team) qo‘shib yo‘naltiramiz
+    closeMenu();
   };
 
   return (
@@ -28,9 +34,13 @@ function Header() {
         <div className={styles.menu_part}>
           <div className={`${styles.menu} ${isMenuOpen ? styles.active : ''}`}>
             {['Home', 'About', 'Country', 'Team', 'Contact'].map((item) => (
-              <Link key={item} to="/" className={styles.link} onClick={closeMenu}>
+              <span
+                key={item}
+                className={styles.link}
+                onClick={() => handleMenuClick(item.toLowerCase())}  // Tanlangan qismni URL ga fragment sifatida qo‘shamiz
+              >
                 {item}
-              </Link>
+              </span>
             ))}
           </div>
 
@@ -54,9 +64,13 @@ function Header() {
           </div>
           <div className={styles.menu}>
             {['Home', 'About', 'Country', 'Team', 'Contact'].map((item) => (
-              <Link key={item} to="/" className={styles.link} onClick={closeMenu}>
+              <span
+                key={item}
+                className={styles.link}
+                onClick={() => handleMenuClick(item.toLowerCase())}  // URL fragmenti qo'shamiz
+              >
                 {item}
-              </Link>
+              </span>
             ))}
           </div>
         </div>
