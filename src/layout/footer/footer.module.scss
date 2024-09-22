@@ -6,23 +6,26 @@
 
     .container {
         width: 90%;
+        max-width: 1200px; // Limit max width for larger screens
         margin: 0 auto;
 
         .logo_part {
-            width: 417px;
+            width: 100%; // Full width
             display: flex;
             flex-direction: column;
+            align-items: flex-start; // Align left
             gap: 20px;
-            
+
             img {
                 width: 148px;
+                max-width: 100%; // Ensure responsiveness
             }
 
             span {
                 font-weight: 400;
                 font-size: 16px;
                 line-height: 24px;
-                color: #E6E6E5;
+                text-align: left; // Align text to the left
             }
         }
 
@@ -44,7 +47,8 @@
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
-
+                align-items: flex-start; // Align left on desktop
+                margin-top: 60px;
                 .link {
                     color: #E6E6E5;
                     font-size: 18px;
@@ -65,6 +69,7 @@
             font-size: 16px;
             font-weight: 400;
             line-height: 20px;
+            text-align: center; // Center align text
         }
     }
 }
@@ -73,15 +78,13 @@
 @media (max-width: 768px) {
     .container {
         .logo_part {
-            width: 100%;
-            text-align: center;
-
             img {
-                width: 120px;
+                width: 120px; // Adjust logo size
             }
 
             span {
                 font-size: 14px;
+                line-height: 20px;
             }
         }
 
@@ -90,7 +93,7 @@
             align-items: center;
 
             div {
-                width: 100%;
+                width: 100%; // Full width for mobile
                 text-align: center;
 
                 span {
@@ -99,6 +102,7 @@
 
                 .link {
                     font-size: 16px;
+                    margin: 5px 0; // Added margin for better spacing
                 }
             }
         }
@@ -117,9 +121,9 @@
     .container {
         .logo_part {
             margin: 0 auto;
+
             span {
-                margin: 0 auto;
-                width: 350px;
+                width: auto; // Adjust width for better fit
                 font-size: 12px;
             }
         }
@@ -128,6 +132,7 @@
             div {
                 .link {
                     font-size: 14px;
+                    margin: 4px 0; // Added margin for spacing
                 }
             }
         }
