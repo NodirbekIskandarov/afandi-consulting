@@ -8,17 +8,16 @@ function Cards({ data }) {
   const name = localStorage.getItem('name');
   const navigate = useNavigate()
   function navigateFunc (id) {
-    const path = pk.pathname.includes("jobs") ? `/details/jobs/${id}` : `/details/universities/${id}`;
-    console.log(path, "path")
-    navigate(path);
+    navigate(`/${id}`);
   }
+
+  console.log(data, "data")
   return (
     <div className={styles.cards}>
       <div className={styles.title_part}>
         <h2>{name} {pk.pathname === "/details/jobs" ? "Jobs" : "Universities"}</h2>
         <span>
-          Transform Your Life and Impact the World with Our Globally Accredited
-          Courses
+          {data?.disc}
         </span>
       </div>
 
@@ -89,7 +88,7 @@ function Cards({ data }) {
                       color: "#FFFFFF",
                     }}
                   >
-                    {item?.name} {pk.pathname === "/details/jobs" ? "Job" : "University"}
+                    {item?.name} {item?.type}
                   </span>
                 </div>
                 <div

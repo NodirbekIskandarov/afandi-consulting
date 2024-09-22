@@ -18,13 +18,10 @@ function App() {
               <Route index element={<Home />} />
               <Route path="details" element={<Details />}>
                 <Route index element={<Navigate to="jobs" />} />
-                <Route path="jobs" element={<Jobs />}>
-                  <Route path=":id" element={<DetailPage />} />
-                </Route>
-                <Route path="universities" element={<Universities />}>
-                  <Route path=":id" element={<DetailPage />} />
-                </Route>
+                <Route path="jobs" element={<Jobs />} />
+                <Route path="universities" element={<Universities />} />
               </Route>
+              <Route path=":id" element={<DetailPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
