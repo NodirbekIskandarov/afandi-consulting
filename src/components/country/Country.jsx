@@ -22,6 +22,7 @@ function Country() {
     setCountryId(item.uuid)
     localStorage.setItem('uuid', item.uuid);
     localStorage.setItem('name', item.name);
+    localStorage.setItem('disc', item.disc)
     navigate('/details/jobs')
   }
   return (

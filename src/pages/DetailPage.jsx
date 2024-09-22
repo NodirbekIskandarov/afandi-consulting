@@ -5,7 +5,6 @@ import { getRequest } from "../utils/request";
 import { getorg, getreqs, host } from "../utils/API_urls";
 function DetailPage() {
   const pk = useParams();
-  console.log(pk.id, "pk");
   const [org, setOrg] = useState();
   const [req, setReq] = useState();
   useEffect(() => {
@@ -19,7 +18,6 @@ function DetailPage() {
 
     getRequest(`${getreqs}${pk.id}/`)
       .then((response) => {
-        console.log(response, "esponse");
         setReq(response?.data);
       })
       .catch((error) => {

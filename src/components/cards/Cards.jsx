@@ -6,18 +6,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 function Cards({ data }) {
   const pk = useLocation();
   const name = localStorage.getItem('name');
+  const disc = localStorage.getItem('disc');
   const navigate = useNavigate()
   function navigateFunc (id) {
     navigate(`/${id}`);
   }
-
-  console.log(data, "data")
   return (
     <div className={styles.cards}>
       <div className={styles.title_part}>
         <h2>{name} {pk.pathname === "/details/jobs" ? "Jobs" : "Universities"}</h2>
         <span>
-          {data?.disc}
+          {disc}
         </span>
       </div>
 
