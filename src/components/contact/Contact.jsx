@@ -26,6 +26,11 @@ function Contact() {
         setModalMessage("Your message has been sent successfully!"); // Muvaffaqiyatli xabar
         setLoading(false);
         setModalOpen(true); // Modalni ochish
+        // Input qiymatlarini tozalash
+        setFirstName("");
+        setLastName("");
+        setPhoneNumber("");
+        setMessage("");
       })
       .catch((error) => {
         setModalMessage("Something went wrong. Please try again."); // Xato holati
@@ -52,30 +57,38 @@ function Contact() {
       </div>
 
       <div className={styles.input_part}>
-        <input
-          type="text"
-          placeholder="First name"
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Last name"
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Phone number"
-          onChange={(e) => setPhoneNumber(e.target.value)}
-        />
-        <textarea
-          placeholder="Your message"
-          onChange={(e) => setMessage(e.target.value)}
-        ></textarea>
+  <div className={styles.row}>
+    <input
+      type="text"
+      placeholder="First name"
+      value={firstName}
+      onChange={(e) => setFirstName(e.target.value)}
+    />
+    <input
+      type="text"
+      placeholder="Last name"
+      value={lastName}
+      onChange={(e) => setLastName(e.target.value)}
+    />
+  </div>
+  <input
+    type="text"
+    placeholder="Phone number"
+    value={phoneNumber}
+    onChange={(e) => setPhoneNumber(e.target.value)}
+  />
+  <textarea
+    placeholder="Your message"
+    value={message}
+    onChange={(e) => setMessage(e.target.value)}
+  ></textarea>
 
-        <button onClick={handleSubmit} disabled={loading}>
-          {loading ? "Sending..." : "Send message"}
-        </button>
-      </div>
+  <button onClick={handleSubmit} disabled={loading}>
+    {loading ? "Sending..." : "Send message"}
+  </button>
+</div>
+
+
 
       {/* Modal oynasi */}
       {modalOpen && (

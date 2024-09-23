@@ -1,118 +1,93 @@
 .contact {
-    width: 90%; // Use percentage for responsiveness
-    max-width: 564px; // Set a maximum width for larger screens
+    width: 90%;
+    max-width: 564px;
     margin: 50px auto;
-
+  
     .title {
-        width: 100%;
-        text-align: center;
-
-        p {
-            font-weight: 400;
-            font-size: 48px;
-            line-height: 62.4px;
-            margin: 0;
-            padding: 0;
-        }
-
-        span {
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-            color: #636059;
-        }
+      width: 100%;
+      text-align: center;
+  
+      p {
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 62.4px;
+        margin: 0;
+        padding: 0;
+      }
+  
+      span {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #636059;
+      }
     }
-
+  
     .input_part {
-        margin-top: 30px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      .row {
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
+        gap: 10px;
+        width: 100%; /* Qator kengligi to'liq */
+      }
+  
+      input,
+      textarea {
+        padding: 15px;
+        outline: none;
+        flex: 1; /* Inputlar va textarea kengligi teng bo'lishi uchun */
+      }
+  
+      input:nth-child(3) {
+        width: 100%; /* Uchinchi input (telefon) to'liq kenglikda */
+      }
+  
+      button {
+        width: 100%;
+        height: 41px;
+        border-radius: 100px;
+        border: 1px solid #114C93;
+        display: flex;
+        justify-content: center;
         align-items: center;
-
-        input {
-            padding: 15px;
-            outline: none;
-
-            &.first-name,
-            &.last-name {
-                width: 43%; // Adjust width for first and last name inputs
-            }
-
-            &.phone-number {
-                margin-top: 20px;
-                width: 100%; // Full width for phone number
-            }
-        }
-
-        textarea {
-            width: 100%;
-            height: 100px;
-            margin-top: 20px;
-            padding: 15px;
-            outline: none;
-        }
-
-        button {
-            width: 100%;
-            height: 41px;
-            border-radius: 100px;
-            border: 1px solid #114C93;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #FFFFFF;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 17.36px;
-            letter-spacing: -2%;
-            box-shadow: 0px 5px 5px -3px #0000001A;
-            background-color: #114C93;
-            margin-top: 20px;
-            cursor: pointer;
-        }
+        color: #FFFFFF;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 17.36px;
+        letter-spacing: -2%;
+        box-shadow: 0px 5px 5px -3px #0000001A;
+        background-color: #114C93;
+        margin-top: 20px;
+        cursor: pointer;
+      }
     }
-
-    // Responsive styles
+  
     @media (max-width: 768px) {
-        .title {
-            p {
-                font-size: 36px; // Reduce font size for smaller screens
-                line-height: 48px; // Adjust line height for smaller screens
-            }
-
-            span {
-                font-size: 14px; // Reduce span font size
-            }
-        }
-
-        .input_part {
-            input.first-name,
-            input.last-name {
-                width: 100%; // Stack inputs on smaller screens
-                margin-top: 20px; // Margin between inputs
-            }
-
-            input.phone-number {
-                width: 100%; // Full width for phone input
-            }
-        }
+      .row {
+        flex-direction: column;
+        gap: 20px;
+      }
     }
-
+  
     @media (max-width: 480px) {
-        .title {
-            p {
-                font-size: 28px; // Further reduce title font size
-            }
-
-            span {
-                font-size: 12px; // Further reduce span font size
-            }
+      .title {
+        p {
+          font-size: 28px;
         }
+  
+        span {
+          font-size: 12px;
+        }
+      }
     }
-}
-
-.modal {
+  }
+  
+  .modal {
     position: fixed;
     top: 0;
     left: 0;
