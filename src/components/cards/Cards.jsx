@@ -1,12 +1,9 @@
 import React from "react";
 import styles from "./cards.module.scss";
 import { IoIosStarOutline } from "react-icons/io";
-import { host } from "../../utils/API_urls";
 import { useLocation, useNavigate } from "react-router-dom";
 function Cards({ data }) {
   const pk = useLocation();
-  const name = localStorage.getItem('name');
-  const disc = localStorage.getItem('disc');
   const navigate = useNavigate()
   function navigateFunc (id) {
     navigate(`/${id}`);
@@ -14,20 +11,20 @@ function Cards({ data }) {
   return (
     <div className={styles.cards}>
       <div className={styles.title_part}>
-        <h2>{name} {pk.pathname === "/details/jobs" ? "Jobs" : "Universities"}</h2>
+        <h2>{data?.country} {pk.pathname === "/details/jobs" ? "Jobs" : "Universities"}</h2>
         <span>
-          {disc}
+          {data?.disc}
         </span>
       </div>
 
       <div className={styles.cards_part}>
-        {data?.map((item, index) => {
+        {data?.list?.map((item, index) => {
           return (
             <div
               key={index}
               className={styles.card}
               style={{
-                backgroundImage: `url(${host + item?.image})`,
+                backgroundImage: `url(${item?.image})`,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",

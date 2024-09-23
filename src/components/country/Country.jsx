@@ -17,8 +17,6 @@ function Country() {
   const navigate = useNavigate()
   function navigateFunc(item) {
     localStorage.setItem('uuid', item.uuid);
-    localStorage.setItem('name', item.name);
-    localStorage.setItem('disc', item.disc)
     navigate('/details/jobs')
   }
   return (

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./detailpage.module.scss";
 import { useParams } from "react-router-dom";
 import { getRequest } from "../utils/request";
-import { getorg, getreqs, host } from "../utils/API_urls";
+import { getorg, getreqs } from "../utils/API_urls";
 function DetailPage() {
   const pk = useParams();
   const [org, setOrg] = useState();
@@ -36,7 +36,7 @@ function DetailPage() {
           Courses
         </span> */}
       </div>
-      <img src={host + org?.image} alt="rasm" style={{ margin: "30px 0" }} />
+      <img src={org?.image} alt="rasm" style={{ margin: "30px 0" }} />
       <div className={styles.text_part}>
         <span>{org?.disc}</span>
       </div>
