@@ -1,8 +1,12 @@
 import React from 'react'
 import styles from'./footer.module.scss'
 import footerimg from '../../assets/images/footerimg.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 function Footer() {
+  const navigate = useNavigate()
+  const handleMenuClick = (section) => {
+    navigate(`/#${section}`);  // URL ga fragment (#about, #team) qo‘shib yo‘naltiramiz
+  };
   return (
     <div className={styles.footer}>
         <div className={styles.container}>
@@ -14,12 +18,10 @@ function Footer() {
           <div className={styles.menu}>
             <div className={styles.company}>
               <span>Company</span>
-              <Link className={styles.link} to="/">Home</Link>
-              <Link className={styles.link} to="/">About us</Link>
-              <Link className={styles.link} to="/">Universities</Link>
-              <Link className={styles.link} to="/">Job</Link>
-              <Link className={styles.link} to="/">Team</Link>
-              <Link className={styles.link} to="/">Contact</Link>
+              <span className={styles.link} onClick={() => handleMenuClick('home')} >Home</span>
+              <span className={styles.link} onClick={() => handleMenuClick('about')}>About us</span>
+              <span className={styles.link} onClick={() => handleMenuClick('team')}>Team</span>
+              <span className={styles.link} onClick={() => handleMenuClick('contact')}>Contact</span>
             </div>
             <div className={styles.country}>
               <span>Country</span>
