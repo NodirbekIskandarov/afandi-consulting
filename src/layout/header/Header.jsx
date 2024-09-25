@@ -25,34 +25,36 @@ function Header() {
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <div className={styles.logo_part}>
-          <Link to="/">
-            <img src={logo} alt='Logo' />
-          </Link>
-        </div>
-
-        <div className={styles.menu_part}>
-          <div className={`${styles.menu} ${isMenuOpen ? styles.active : ''}`}>
-            {['Home', 'About', 'Country', 'Team', 'Contact'].map((item) => (
-              <span
-                key={item}
-                className={styles.link}
-                onClick={() => handleMenuClick(item.toLowerCase())}  // Tanlangan qismni URL ga fragment sifatida qo‘shamiz
-              >
-                {item}
-              </span>
-            ))}
+        <div className={styles.container}>
+          <div className={styles.logo_part}>
+            <Link to="/">
+              <img src={logo} alt='Logo' />
+            </Link>
           </div>
 
-          <div className={styles.call}>
-            <a href="tel:1234567890">
-              <img src={vector} alt="Call now" />
-              <span>Call now</span>
-            </a>
-          </div>
+          <div className={styles.menu_part}>
+            <div className={`${styles.menu} ${isMenuOpen ? styles.active : ''}`}>
+              {['Home', 'About', 'Country', 'Team', 'Contact'].map((item) => (
+                <span
+                  key={item}
+                  className={styles.link}
+                  onClick={() => handleMenuClick(item.toLowerCase())}  // Tanlangan qismni URL ga fragment sifatida qo‘shamiz
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
 
-          <div className={styles.menuToggle} onClick={toggleMenu}>
-            {isMenuOpen ? <FaTimes /> : <FaBars />}
+            <div className={styles.call}>
+              <a href="tel:1234567890">
+                <img src={vector} alt="Call now" />
+                <span>Call now</span>
+              </a>
+            </div>
+
+            <div className={styles.menuToggle} onClick={toggleMenu}>
+              {isMenuOpen ? <FaTimes /> : <FaBars />}
+            </div>
           </div>
         </div>
       </div>

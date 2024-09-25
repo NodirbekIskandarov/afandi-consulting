@@ -8,8 +8,9 @@
   }
 }
 
-.header {
+.container {
   width: 90%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +26,7 @@
   }
 
   .menu_part {
-    width: 40%;
+    width: 45%;
     display: flex;
     justify-content: space-between;
     align-items: center;
