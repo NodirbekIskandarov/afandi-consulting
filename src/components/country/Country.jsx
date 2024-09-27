@@ -22,7 +22,7 @@ function Country() {
   return (
     <div className={styles.country}>
       <div className={styles.title}>
-        <span>Conutry</span>
+        <span>Country</span>
         <p>
           Transform Your Life and Impact the World with Our Globally Accredited
           Courses
