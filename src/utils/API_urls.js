@@ -1,4 +1,4 @@
-export const host = process.env.REACT_APP_API_URL ?? 'http://75.119.131.15:8000'
+export const host = process.env.REACT_APP_API_URL ?? 'http://api.afandi-consult.uz'
 export const about = "get/about/"
 export const banner = "get/banner/"
 export const team = "get/team/"
