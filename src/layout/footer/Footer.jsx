@@ -4,8 +4,10 @@ import footerimg from '../../assets/images/footerimg.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { getRequest } from '../../utils/request'
 import { country, sociallist } from '../../utils/API_urls'
+import { useTranslation } from 'react-i18next'
 function Footer() {
   const navigate = useNavigate()
+  const {t} = useTranslation()
   const [data, setData] = useState()
   const [countryList, setCountryList] = useState()
   const handleMenuClick = (section) => {
@@ -40,19 +42,19 @@ function Footer() {
         <div className={styles.container}>
           <div className={styles.logo_part}>
             <a href="/"><img src={footerimg} alt="footerlogo" /></a>
-            <span>Afandi consulting offers online training in Environmental and Holistic Wellness.</span>
+            <span>{t("Afandi consulting offers online training in Environmental and Holistic Wellness.")}</span>
           </div>
 
           <div className={styles.menu}>
             <div className={styles.company}>
-              <span>Company</span>
+              <span>{t("Company")}</span>
               <span className={styles.link} onClick={() => handleMenuClick('home')} >Home</span>
               <span className={styles.link} onClick={() => handleMenuClick('about')}>About us</span>
               <span className={styles.link} onClick={() => handleMenuClick('team')}>Team</span>
               <span className={styles.link} onClick={() => handleMenuClick('contact')}>Contact</span>
             </div>
             <div className={styles.country}>
-              <span>Country</span>
+              <span>{t("Country")}</span>
               {
                 countryList?.slice(0, 4)?.map((item, index) => {
                   return (
@@ -62,7 +64,7 @@ function Footer() {
               }
             </div>
             <div className={styles.social}>
-              <span>Social</span>
+              <span>{t("Social")}</span>
               {
                 data?.map((item, index) => {
                   return (

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./header.module.scss";
 import logo from "../../assets/images/logo.png";
-import vector from "../../assets/images/vector.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
@@ -10,6 +9,7 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { i18n } = useTranslation();
   const navigate = useNavigate();
+  const {t} = useTranslation()
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
@@ -49,16 +49,9 @@ function Header() {
                   className={styles.link}
                   onClick={() => handleMenuClick(item.toLowerCase())}
                 >
-                  {item}
+                  {t(`${item}`)}
                 </span>
               ))}
-            </div>
-
-            <div className={styles.call}>
-              <a href="tel:1234567890">
-                <img src={vector} alt="Call now" />
-                <span>Call now</span>
-              </a>
             </div>
 
             <div className={styles.languageSelect}>
@@ -93,7 +86,7 @@ function Header() {
                 className={styles.link}
                 onClick={() => handleMenuClick(item.toLowerCase())}
               >
-                {item}
+                {t(`${item}`)}
               </span>
             ))}
           </div>

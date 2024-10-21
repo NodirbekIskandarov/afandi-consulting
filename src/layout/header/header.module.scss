@@ -26,7 +26,6 @@
   }
 
   .menu_part {
-    width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,7 +37,7 @@
     .menu {
       display: flex;
       gap: 30px;
-
+      margin-right: 20px;
       .link {
         text-decoration: none;
         color: white;
