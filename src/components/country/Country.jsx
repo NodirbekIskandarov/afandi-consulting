@@ -3,8 +3,10 @@ import styles from "./country.module.scss";
 import { getRequest } from "../../utils/request";
 import { country } from "../../utils/API_urls";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 function Country() {
   const [data, setData] = useState([]);
+  const {t} = useTranslation()
   useEffect(() => {
     getRequest(country)
       .then((response) => {
@@ -22,10 +24,9 @@ function Country() {
   return (
     <div className={styles.country}>
       <div className={styles.title}>
-        <span>Country</span>
+        <span>{t("Country")}</span>
         <p>
-          Transform Your Life and Impact the World with Our Globally Accredited
-          Courses
+          {t("Transform Your Life and Impact the World with Our Globally Accredited Courses")}
         </p>
       </div>
 

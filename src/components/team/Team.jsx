@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./team.module.scss";
 import { getRequest } from "../../utils/request";
 import { team } from "../../utils/API_urls";
+import { useTranslation } from "react-i18next";
 function Team() {
   const [data, setData] = useState([]);
+  const {t} = useTranslation()
   useEffect(() => {
     getRequest(team)
       .then((response) => {
@@ -15,7 +17,7 @@ function Team() {
   }, []);
   return (
     <div className={styles.team}>
-      <h3>Our team</h3>
+      <h3>{t("Our team")}</h3>
       <div className={styles.cards}>
         {data?.map((item, index) => {
           return (

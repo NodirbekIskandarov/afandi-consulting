@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./contact.module.scss";
 import { postRequest } from "../../utils/request";
 import { postInfo } from "../../utils/API_urls";
+import { useTranslation } from "react-i18next";
 
 function Contact() {
   const [firstName, setFirstName] = useState("");
@@ -11,7 +12,7 @@ function Contact() {
   const [loading, setLoading] = useState(false); // Yuborish jarayoni yuklanishi
   const [modalOpen, setModalOpen] = useState(false); // Modal ochiq yoki yo'q holati
   const [modalMessage, setModalMessage] = useState(""); // Modalda ko'rsatiladigan xabar
-
+  const {t} = useTranslation()
   const handleSubmit = () => {
     setLoading(true); // Yuklanishni ko'rsatish
     const postData = {
@@ -46,7 +47,7 @@ function Contact() {
   return (
     <div className={styles.contact}>
       <div className={styles.title}>
-        <p>Contact us</p>
+        <p>{t("Contact us")}</p>
         <span>
           If you ever have questions, concerns, or just want to share your
           thoughts, please don’t hesitate to reach out to us. We’re all about
@@ -60,31 +61,31 @@ function Contact() {
   <div className={styles.row}>
     <input
       type="text"
-      placeholder="First name"
+      placeholder={t("First name")}
       value={firstName}
       onChange={(e) => setFirstName(e.target.value)}
     />
     <input
       type="text"
-      placeholder="Last name"
+      placeholder={t("Last name")}
       value={lastName}
       onChange={(e) => setLastName(e.target.value)}
     />
   </div>
   <input
     type="text"
-    placeholder="Phone number"
+    placeholder={t("Phone number")}
     value={phoneNumber}
     onChange={(e) => setPhoneNumber(e.target.value)}
   />
   <textarea
-    placeholder="Your message"
+    placeholder={t("Your message")}
     value={message}
     onChange={(e) => setMessage(e.target.value)}
   ></textarea>
 
   <button onClick={handleSubmit} disabled={loading}>
-    {loading ? "Sending..." : "Send message"}
+    {loading ? t("Sending...") : t("Send message")}
   </button>
 </div>
 
@@ -95,7 +96,7 @@ function Contact() {
         <div className={styles.modal}>
           <div className={styles.modalContent}>
             <p>{modalMessage}</p>
-            <button onClick={closeModal}>Close</button>
+            <button onClick={closeModal}>{t("Close")}</button>
           </div>
         </div>
       )}

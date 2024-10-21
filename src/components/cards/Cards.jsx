@@ -2,9 +2,11 @@ import React from "react";
 import styles from "./cards.module.scss";
 import { IoIosStarOutline } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 function Cards({ data }) {
   const pk = useLocation();
   const navigate = useNavigate()
+  const {t} = useTranslation()
   function navigateFunc (id) {
     navigate(`/${id}`);
   }
@@ -68,7 +70,7 @@ function Cards({ data }) {
                     }}
                   >
                     <IoIosStarOutline />
-                    <span>Rank: {item?.rank}</span>
+                    <span>{t("Rank")}: {item?.rank}</span>
                   </span>
                 </div>
                 <div
@@ -111,7 +113,7 @@ function Cards({ data }) {
                       marginRight: "10px",
                     }}
                   >
-                    <a href={item.link} target="blank">Web site</a>
+                    <a href={item.link} target="blank">{t("Web site")}</a>
                   </span>
                 </div>
               </div>
