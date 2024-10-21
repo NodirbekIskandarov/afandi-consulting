@@ -4,7 +4,7 @@
   padding: 32px 0;
 
   @media (max-width: 768px) {
-    padding: 16px 0; // Reduced padding for mobile
+    padding: 16px 0;
   }
 }
 
@@ -26,29 +26,31 @@
   }
 
   .menu_part {
-    width: 45%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     @media (max-width: 768px) {
       justify-content: flex-end;
     }
+
     .menu {
       display: flex;
       gap: 30px;
 
       .link {
         text-decoration: none;
-        color: white; // Istalgan rangni qo'yishingiz mumkin
-        cursor: pointer; // Kursor pointer bo'ladi
+        color: white;
+        cursor: pointer;
         transition: color 0.3s ease;
         &:hover {
-          color: #007bff; // Hover effektni qo'shing, rang o'zgarishi mumkin
+          color: #007bff;
         }
       }
 
       @media (max-width: 768px) {
-        display: none; // Hide on mobile
+        display: none;
       }
     }
 
@@ -65,6 +67,7 @@
         text-decoration: none;
         background: linear-gradient(to bottom, #22376c, #ffffff33);
         box-shadow: 0px 5px 5px -3px #0000001a;
+
         span {
           color: #ffffff;
         }
@@ -75,11 +78,39 @@
       }
     }
 
+    .languageSelect {
+      select {
+        background-color: transparent;
+        color: white;
+        border: 1px solid #ffffff;
+        border-radius: 4px;
+        padding: 4px 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: border-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          border-color: #007bff;
+          color: #007bff;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: #007bff;
+        }
+
+        option {
+          background-color: #22376c;
+          color: white;
+        }
+      }
+    }
+
     .menuToggle {
-      display: none; // Hide toggle on desktop
+      display: none;
 
       @media (max-width: 768px) {
-        display: block; // Show toggle on mobile
+        display: block;
         font-size: 24px;
         cursor: pointer;
         color: #ffffff;
@@ -114,16 +145,18 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+
     .link {
       width: 100%;
       text-align: left;
       padding: 15px 0;
       text-decoration: none;
-      color: white; // Istalgan rangni qo'yishingiz mumkin
-      cursor: pointer; // Kursor pointer bo'ladi
+      color: white;
+      cursor: pointer;
       transition: color 0.3s ease;
+
       &:hover {
-        color: #007bff; // Hover effektni qo'shing, rang o'zgarishi mumkin
+        color: #007bff;
       }
     }
   }

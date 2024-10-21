@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
-import styles from './header.module.scss';
-import logo from '../../assets/images/logo.png';
-import vector from '../../assets/images/vector.png';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React, { useState } from "react";
+import styles from "./header.module.scss";
+import logo from "../../assets/images/logo.png";
+import vector from "../../assets/images/vector.png";
+import { Link, useNavigate } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { i18n } = useTranslation();
   const navigate = useNavigate();
 
   const toggleMenu = () => {
-    setIsMenuOpen(prevState => !prevState);
+    setIsMenuOpen((prevState) => !prevState);
   };
 
   const closeMenu = () => {
@@ -18,8 +20,13 @@ function Header() {
   };
 
   const handleMenuClick = (section) => {
-    navigate(`/#${section}`);  // URL ga fragment (#about, #team) qo‘shib yo‘naltiramiz
+    navigate(`/#${section}`);
     closeMenu();
+  };
+
+  const handleLanguageChange = (event) => {
+    const selectedLanguage = event.target.value;
+    i18n.changeLanguage(selectedLanguage); // Change the language using i18n
   };
 
   return (
@@ -28,17 +35,19 @@ function Header() {
         <div className={styles.container}>
           <div className={styles.logo_part}>
             <Link to="/">
-              <img src={logo} alt='Logo' />
+              <img src={logo} alt="Logo" />
             </Link>
           </div>
 
           <div className={styles.menu_part}>
-            <div className={`${styles.menu} ${isMenuOpen ? styles.active : ''}`}>
-              {['Home', 'About', 'Country', 'Team', 'Contact'].map((item) => (
+            <div
+              className={`${styles.menu} ${isMenuOpen ? styles.active : ""}`}
+            >
+              {["Home", "About", "Country", "Team", "Contact"].map((item) => (
                 <span
                   key={item}
                   className={styles.link}
-                  onClick={() => handleMenuClick(item.toLowerCase())}  // Tanlangan qismni URL ga fragment sifatida qo‘shamiz
+                  onClick={() => handleMenuClick(item.toLowerCase())}
                 >
                   {item}
                 </span>
@@ -50,6 +59,19 @@ function Header() {
                 <img src={vector} alt="Call now" />
                 <span>Call now</span>
               </a>
+            </div>
+
+            <div className={styles.languageSelect}>
+              <select
+                defaultValue={i18n.lng}
+                onChange={handleLanguageChange}
+                className={styles.languageDropdown}
+              >
+                <option value="en">EN</option>
+                <option value="ru">RU</option>
+                <option value="uz">UZ</option>
+                <option value="de">DE</option>
+              </select>
             </div>
 
             <div className={styles.menuToggle} onClick={toggleMenu}>
@@ -65,11 +87,11 @@ function Header() {
             <FaTimes />
           </div>
           <div className={styles.menu}>
-            {['Home', 'About', 'Country', 'Team', 'Contact'].map((item) => (
+            {["Home", "About", "Country", "Team", "Contact"].map((item) => (
               <span
                 key={item}
                 className={styles.link}
-                onClick={() => handleMenuClick(item.toLowerCase())}  // URL fragmenti qo'shamiz
+                onClick={() => handleMenuClick(item.toLowerCase())}
               >
                 {item}
               </span>
