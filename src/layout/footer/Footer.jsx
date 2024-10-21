@@ -7,7 +7,9 @@ import { country, sociallist } from '../../utils/API_urls'
 import { useTranslation } from 'react-i18next'
 function Footer() {
   const navigate = useNavigate()
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
+  const language = i18n.language
+  const nameKey = `name_${language}`
   const [data, setData] = useState()
   const [countryList, setCountryList] = useState()
   const handleMenuClick = (section) => {
@@ -48,17 +50,17 @@ function Footer() {
           <div className={styles.menu}>
             <div className={styles.company}>
               <span>{t("Company")}</span>
-              <span className={styles.link} onClick={() => handleMenuClick('home')} >Home</span>
-              <span className={styles.link} onClick={() => handleMenuClick('about')}>About us</span>
-              <span className={styles.link} onClick={() => handleMenuClick('team')}>Team</span>
-              <span className={styles.link} onClick={() => handleMenuClick('contact')}>Contact</span>
+              <span className={styles.link} onClick={() => handleMenuClick('home')} >{t("Home")}</span>
+              <span className={styles.link} onClick={() => handleMenuClick('about')}>{t("About us")}</span>
+              <span className={styles.link} onClick={() => handleMenuClick('team')}>{t("Team")}</span>
+              <span className={styles.link} onClick={() => handleMenuClick('contact')}>{t("Contact")}</span>
             </div>
             <div className={styles.country}>
               <span>{t("Country")}</span>
               {
                 countryList?.slice(0, 4)?.map((item, index) => {
                   return (
-                    <span key={index} className={styles.link} onClick={() => navigateFunc(item?.uuid)}>{item?.name}</span>
+                    <span key={index} className={styles.link} onClick={() => navigateFunc(item?.uuid)}>{item?.[nameKey]}</span>
                   )
                 })
               }
@@ -68,7 +70,7 @@ function Footer() {
               {
                 data?.map((item, index) => {
                   return (
-                    <Link className={styles.link} to={item?.link} key={index}>{item?.name}</Link>
+                    <Link className={styles.link} to={item?.link} key={index}>{item?.[nameKey]}</Link>
                   )
                 })
               }

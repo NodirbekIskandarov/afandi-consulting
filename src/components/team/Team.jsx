@@ -5,7 +5,10 @@ import { team } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
 function Team() {
   const [data, setData] = useState([]);
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
+  const language = i18n.language
+  const fullnameKey = `fullname_${language}`
+  const positionKey = `position_${language}`
   useEffect(() => {
     getRequest(team)
       .then((response) => {
@@ -23,10 +26,10 @@ function Team() {
           return (
             <div className={styles.card} key={index}>
               <img src={item.image} alt="odam rasm" />
-              <span className={styles.name}>{item.fullname}</span>
+              <span className={styles.name}>{item?.[fullnameKey]}</span>
               <div className={styles.position}>
                 <div></div>
-                <span>{item.position}</span>
+                <span>{item?.[positionKey]}</span>
               </div>
             </div>
           );

@@ -6,10 +6,14 @@ import { useTranslation } from "react-i18next";
 function Cards({ data }) {
   const pk = useLocation();
   const navigate = useNavigate()
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
   function navigateFunc (id) {
     navigate(`/${id}`);
   }
+  const language = i18n.language
+  const rankKey=`rank_${language}`
+  const nameKey=`name_${language}`
+  const typeKey=`type_${language}`
   return (
     <div className={styles.cards}>
       <div className={styles.title_part}>
@@ -70,7 +74,7 @@ function Cards({ data }) {
                     }}
                   >
                     <IoIosStarOutline />
-                    <span>{t("Rank")}: {item?.rank}</span>
+                    <span>{t("Rank")}: {item?.[rankKey]}</span>
                   </span>
                 </div>
                 <div
@@ -86,7 +90,7 @@ function Cards({ data }) {
                       color: "#FFFFFF",
                     }}
                   >
-                    {item?.name} {item?.type}
+                    {item?.[nameKey]} {item?.[typeKey]}
                   </span>
                 </div>
                 <div

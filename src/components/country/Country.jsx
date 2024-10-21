@@ -6,7 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 function Country() {
   const [data, setData] = useState([]);
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
+  const language = i18n.language
+  const nameKey = `name_${language}`
+  const discKey = `disc_${language}`
   useEffect(() => {
     getRequest(country)
       .then((response) => {
@@ -35,9 +38,9 @@ function Country() {
           return (
             <div className={styles.card} key={index} onClick={() => navigateFunc(item)}>
               <img src={item?.image} alt="country rasm" />
-              <span className={styles.name}>{item.name}</span>
+              <span className={styles.name}>{item?.[nameKey]}</span>
               <br />
-              <span className={styles.desc}>{item.disc}</span>
+              <span className={styles.desc}>{item?.[discKey]}</span>
             </div>
           );
         })}

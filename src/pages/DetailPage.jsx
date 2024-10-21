@@ -3,10 +3,16 @@ import styles from "./detailpage.module.scss";
 import { useParams } from "react-router-dom";
 import { getRequest } from "../utils/request";
 import { getorg, getreqs } from "../utils/API_urls";
+import { useTranslation } from "react-i18next";
 function DetailPage() {
   const pk = useParams();
   const [org, setOrg] = useState();
   const [req, setReq] = useState();
+  const {t, i18n} = useTranslation()
+  const language = i18n.language
+  const nameKey = `name_${language}`
+  const typeKey = `type_${language}`
+  const discKey = `disc_${language}`
   useEffect(() => {
     getRequest(`${getorg}${pk.id}/`)
       .then((response) => {
@@ -28,7 +34,7 @@ function DetailPage() {
     <div className={styles.detail_page}>
       <div className={styles.title_part}>
         <span>
-          {org?.name} {org?.type}
+          {org?.[nameKey]} {org?.[typeKey]}
         </span>
         {/* <br />
         <span>
@@ -38,14 +44,14 @@ function DetailPage() {
       </div>
       <img src={org?.image} alt="rasm" style={{ margin: "30px 0" }} />
       <div className={styles.text_part}>
-        <span>{org?.disc}</span>
+        <span>{org?.[discKey]}</span>
       </div>
 
       <div className={styles.requirment}>
-        <span>Document</span>
+        <span>{t("Document")}</span>
         <ul>
           {req?.map((item, index) => {
-            return <li key={index}>{item.name}</li>;
+            return <li key={index}>{item?.[nameKey]}</li>;
           })}
         </ul>
       </div>

@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 function About() {
   const [data, setData] = useState([]);
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
+  const language = i18n.language
   const navigate = useNavigate()
   useEffect(() => {
     getRequest(about)
@@ -21,6 +22,7 @@ function About() {
   const handleMenuClick = (section) => {
     navigate(`/#${section}`);  // URL ga fragment (#about, #team) qo‘shib yo‘naltiramiz
   };
+  const bodyKey = `body_${language}`;
   return (
     <div className={styles.about}>
       <div className={styles.info}>
@@ -28,7 +30,7 @@ function About() {
           <h3>{t("About us")}</h3>
           <p>
             {
-                data[0]?.body
+                data[0]?.[bodyKey]
             }
           </p>
           <button onClick={() => handleMenuClick('contact')}>{t("Book a consultation")}</button>
