@@ -121,8 +121,8 @@
         }
     }
 
-    @media screen and (max-width: 576px) {
-        width: 100%;
+    @media screen and (max-width: 480px) {
+        width: 90%;
         padding: 20px 0;
 
         .title_part {
@@ -134,7 +134,7 @@
                 font-size: 12px;
             }
         }
-
+        
         .text_part {
             font-size: 14px;
             line-height: 22px;
