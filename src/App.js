@@ -4,6 +4,7 @@ import Layout from "./layout/Layout";
 import Details from "./pages/Details";
 import DetailPage from "./pages/DetailPage";
 import './i18n';
+import './App.css'
 function App() {
   return (
     <BrowserRouter>
