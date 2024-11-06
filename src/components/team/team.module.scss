@@ -1,52 +1,108 @@
 .team {
     width: 100%;
     margin-top: 40px;
-
+  
     h3 {
-        margin: 30px 0;
-        text-align: center;
-        font-weight: 400;
-        font-size: 32px;
-        line-height: 41.6px;
+      margin: 30px 0;
+      text-align: center;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 41.6px;
+  
+      @media (max-width: 768px) {
+        font-size: 28px;
+        line-height: 36px;
+      }
+  
+      @media (max-width: 480px) {
+        font-size: 24px;
+        line-height: 32px;
+      }
     }
-
+  
     .cards {
-        width: 100%;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+  
+      .card {
+        width: 24%;
+        margin: 10px 0;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
-
-        .card {
-            width: 24%;
-            margin: 10px 0;
-
-            img {
-                width: 100%;
-                border-radius: 10px;
-            }
-
-            .name {
-                font-size: 20px;
-                line-height: 26px;
-                font-weight: 400;
-                color: #000000;
-            }
-
-            .position {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                margin-top: 10px;
-
-                div {
-                    width: 8px;
-                    height: 8px;
-                    background-color: #65A30D;
-                    border-radius: 50%;
-                }
-            }
+        text-align: center;
+  
+        img {
+          width: 100%;
+          border-radius: 10px;
+          object-fit: cover;
+          @media (max-width: 480px) {
+            width: 80%;  // Set image width to 80%
+            margin: 0 auto; // Center the image horizontally
+          }
         }
+  
+        .name {
+          font-size: 20px;
+          line-height: 26px;
+          font-weight: 400;
+          color: #000000;
+  
+          @media (max-width: 768px) {
+            font-size: 18px;
+            line-height: 24px;
+          }
+  
+          @media (max-width: 480px) {
+            font-size: 16px;
+            line-height: 22px;
+          }
+        }
+  
+        .position {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 10px;
+  
+          div {
+            width: 8px;
+            height: 8px;
+            background-color: #65A30D;
+            border-radius: 50%;
+          }
+  
+          span {
+            font-size: 16px;
+            color: #333;
+  
+            @media (max-width: 768px) {
+              font-size: 14px;
+            }
+  
+            @media (max-width: 480px) {
+              font-size: 12px;
+            }
+          }
+        }
+  
+        @media (max-width: 1024px) {
+          width: 32%;
+        }
+  
+        @media (max-width: 768px) {
+          width: 48%;
+        }
+  
+        @media (max-width: 480px) {
+          width: 100%;
+        }
+      }
     }
-}
+  }
+  
